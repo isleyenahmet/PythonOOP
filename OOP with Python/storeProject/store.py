@@ -26,6 +26,10 @@ def urun_sil(market):
         if 0 <=  secim < len(market):
             silinen = market.pop(secim)
             print(f"{silinen}, silindi.")
+        else:
+            print("Bu numarada bir ürün yok!")
+    except ValueError:
+        print("Gecersiz Deger!")
 
 def urun_listele(market):
     if not market:
@@ -51,13 +55,16 @@ def anaMenu():
         secim = input("Secim: ")
 
         if secim == "1":
-            urun_ekle()
+            urun_ekle(market)
         elif secim == "2":
-            urun_sil()
+            urun_sil(market)
         elif secim == "3":
-            urun_listele()
+            urun_listele(market)
         elif secim == "4":
             print("Cikis Yapiliyor")
             break
         else:
             print("Gecerli Bir Deger Giriniz!")
+
+
+anaMenu()
